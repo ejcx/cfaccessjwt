@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const promisify = require('util').promisify;
+const promisify = require('util.promisify');
 const jwtVerify = promisify(jwt.verify);
 
 async function VerifyJWT(jwks, jwt, audience, issuer) {
