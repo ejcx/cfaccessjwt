@@ -1,7 +1,24 @@
 {
   "dependencies": {
     "jsonwebtoken": "^8.4.0",
-    "node-fetch": "^2.3.0",
     "p-locate": "^3.0.0"
-  }
+  },
+  "name": "cfaccessjwt",
+  "version": "1.0.0",
+  "description": "Verify Cloudflare Access JWTs in a runtime agnostic way.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejcx/cfaccessjwt.git"
+  },
+  "author": "Evan Johnson <evan@cloudflare.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejcx/cfaccessjwt/issues"
+  },
+  "homepage": "https://github.com/ejcx/cfaccessjwt#readme"
 }
