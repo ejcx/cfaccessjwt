@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "jsonwebtoken": "^8.4.0",
+    "node-fetch": "^2.3.0",
+    "p-locate": "^3.0.0"
+  }
+}
