@@ -28,6 +28,32 @@ async function VerifyJWT(jwks, jwt, audience, issuer) {
   return false;
 }
 
+async function VerifyJWTManualAud(jwks, jwt, issuer) {
+  var keys = jwks.keys
+  const signingKeys = keys
+      .filter(key => key.use === 'sig' && key.kty === 'RSA' && key.kid && ((key.x5c && key.x5c.length) || (key.n && key.e)))
+      .map(key => {
+        if (key.x5c && key.x5c.length) {
+          return { kid: key.kid, nbf: key.nbf, publicKey: certToPEM(key.x5c[0]) };
+        } else {
+          return { kid: key.kid, nbf: key.nbf, rsaPublicKey: rsaPublicKeyToPEM(key.n, key.e) };
+        }
+      });
+  for (var j=0;j<signingKeys.length;j++) {
+    let key = signingKeys[j].publicKey || signingKeys[j].rsaPublicKey;
+    try {
+      return await jwtVerify(jwt, key, { issuer });
+    } catch (err) {
+      if (/invalid signature/.test(err.message)) {
+        continue
+      } else {
+        continue
+      }
+    }
+  }
+  return false;
+}
+
 function toHex(number) {
   const nstr = number.toString(16);
   if (nstr.length % 2) {
@@ -77,4 +103,7 @@ function rsaPublicKeyToPEM(modulusB64, exponentB64) {
   return pem;
 };
 
-module.exports = VerifyJWT;
+module.exports = {
+  VerifyJWT,
+  VerifyJWTManualAud
+};
