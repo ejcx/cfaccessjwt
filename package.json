@@ -4,7 +4,7 @@
     "util.promisify": "^1.0.0"
   },
   "name": "cfaccessjwt",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Verify Cloudflare Access JWTs in a runtime agnostic way.",
   "main": "index.js",
   "scripts": {
