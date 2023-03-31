@@ -1,13 +1,12 @@
 {
   "dependencies": {
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "util.promisify": "^1.0.0"
   },
   "name": "cfaccessjwt",
   "version": "2.0.0",
   "description": "Verify Cloudflare Access JWTs in a runtime agnostic way.",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
